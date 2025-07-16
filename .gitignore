@@ -1,2 +1,7 @@
 .env
 node_modules
+dist/
+build/
+src/**/*.js
+src/**/*.js.map
+!drizzle.config.js

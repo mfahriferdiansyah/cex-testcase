@@ -1,10 +1,11 @@
-import { pgTable, serial, text, timestamp, boolean, integer } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp, boolean, integer, decimal } from 'drizzle-orm/pg-core';
 
 export const wallets = pgTable('wallets', {
   id: serial('id').primaryKey(),
   address: text('address').notNull().unique(),
   frozen: boolean('frozen').default(false),
   encryptedKey: text('encrypted_key').notNull(),
+  balance: decimal('balance', { precision: 18, scale: 6 }).default('0'),
   createdAt: timestamp('created_at').defaultNow(),
 });
 
